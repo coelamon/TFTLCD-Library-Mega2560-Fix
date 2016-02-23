@@ -100,12 +100,12 @@ void Adafruit_TFTLCD::init(void) {
   WR_IDLE;
   RD_IDLE;
   CD_DATA;
-  digitalWrite(5, HIGH); // Reset line
+  digitalWrite(A4, HIGH); // Reset line
   pinMode(A3, OUTPUT);   // Enable outputs
   pinMode(A2, OUTPUT);
   pinMode(A1, OUTPUT);
   pinMode(A0, OUTPUT);
-  pinMode( 5, OUTPUT);
+  pinMode(A4, OUTPUT);
 #endif
 
   setWriteDir(); // Set up LCD data port(s) for WRITE operations

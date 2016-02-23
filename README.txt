@@ -1,3 +1,22 @@
+connections:
+TFT -> Arduino Mega 2560 pin | ATMEGA2560 pin
+LCD_RD -> A0 | PF0
+LCD_WR -> A1 | PF1
+LCD_RS -> A2 | PF2
+LCD_CS -> A3 | PF3
+LCD_RST -> A4 | PF4
+
+LCD_D2 -> 2 | PE4
+LCD_D3 -> 3 | PE5
+LCD_D4 -> 4 | PG5
+LCD_D5 -> 5 | PE3
+LCD_D6 -> 6 | PH3
+LCD_D7 -> 7 | PH4
+
+LCD_D0 -> 8 | PH5
+LCD_D1 -> 9 | PH6
+
+all the rest:
 This is a library for the Adafruit 2.8" TFT display.
 This library works with the Adafruit 2.8" TFT Breakout w/SD card
   ----> http://www.adafruit.com/products/335

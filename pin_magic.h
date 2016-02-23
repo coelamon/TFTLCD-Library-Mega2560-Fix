@@ -146,19 +146,22 @@
 
   #define write8inline(d) {                                              \
     PORTH = (PORTH&B10000111)|(((d)&B11000000)>>3)|(((d)&B00000011)<<5); \
-    PORTB = (PORTB&B01001111)|(((d)&B00101100)<<2);                      \
+    PORTE = (PORTE&B11001111)|(((d)&B00001100)<<2);                      \
+    PORTE = (PORTE&B11110111)|(((d)&B00100000)>>2);                      \
     PORTG = (PORTG&B11011111)|(((d)&B00010000)<<1);                      \
     WR_STROBE; }
   #define read8inline(result) {                                      \
     RD_ACTIVE;                                                       \
     DELAY7;                                                          \
-    result = ((PINH & B00011000) << 3) | ((PINB & B10110000) >> 2) | \
+    result = ((PINH & B00011000) << 3) | ((PINE & B00110000) >> 2) | \
+             ((PINE & B00001000) << 2) |                             \
              ((PING & B00100000) >> 1) | ((PINH & B01100000) >> 5);  \
-    RD_IDLE; }
+    RD_IDLE;                                                         \
+	}
   #define setWriteDirInline() {                                   \
-    DDRH |=  B01111000; DDRB |=  B10110000; DDRG |=  B00100000; }
+    DDRH |=  B01111000; DDRE |=  B00111000; DDRG |=  B00100000; }
   #define setReadDirInline()  {                                   \
-    DDRH &= ~B01111000; DDRB &= ~B10110000; DDRG &= ~B00100000; }
+    DDRH &= ~B01111000; DDRE &= ~B00111000; DDRG &= ~B00100000; }
 
  #else // Mega w/Breakout board
 
